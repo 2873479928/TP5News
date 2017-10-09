@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>后台管理</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/AdminStyle.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/DropDownList.css">
+	<link rel="stylesheet" href="/static/editor/themes/default/default.css" />
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/DropDownList.js"></script>
+	<script src="/static/editor/kindeditor-all.js"></script>
+    <script src="/static/editor/lang/zh_CN.js"></script>
+	<script>
+        KindEditor.ready(function(K) {
+                window.editor = K.create('#editor');
+        });
+    </script>
+    <script>
+		KindEditor.ready(function(K) {
+		var editor = K.editor({allowFileManager : true});
+		K('#image').click(function() {
+		editor.loadPlugin('image', function() {
+		editor.plugin.imageDialog({
+		imageUrl : K('#imgurl').val(),
+		clickFn : function(url, title, width, height, border, align) {
+		K('#imgurl').val(url);
+		editor.hideDialog();}});});});});
+	</script>
+</head>
+<body style='overflow:-Scroll;overflow-x:hidden'>
+<div class="wrap">
+    <div class="adminleft">
+    <p style="height:510px"><img src="{$imgurl}" value="{$imgurl}"></p>
+    <p>
+    <form action="/updateimg" method="post">
+    <input type="text" name="ImgUrl" id="imgurl">
+    <input type="button" id="image" value="选择图片">
+    <input type="submit" value="应用">
+    </form>
+    </p>
+    </div>
+    <div class="adminright">
+    	<dl>
+    	<dt>
+	    <p><a href="?id=0">修改默认展示页</a></p>
+	    </dt><hr/>
+        <dt>
+	    <p><a href="/show/0">前往展示页</a></p>
+	    </dt>
+	    <dt>
+	    <p><a href="/login">切换帐号</a></p>
+	    </dt>
+	    <dt>
+	    <p><a href="/logout">注销</a></p>
+	    </dt>
+	    </dl>
+    </div>
+    <div class="adminheader">
+	<h3>后台管理</h3>
+	</div>
+	<div class="admintitle">
+	{include file="common/DropDownList" /}
+    </div>
+    <div class="{$adminmain}">
+    <dl>
+	<dt>
+	<form action="/updatenews" method="post">
+	<p style="display:none"><input name="SelectId" type="text" value="{$SelectId}"></p>
+	<p>
+	<input class="inputtitle" name="Title" type="text" placeholder="请填写内容" value="{$AdminTitle}">
+	</p>
+	<ul>
+	<textarea id="editor" name="Content">{$AdminContent}</textarea>
+	</ul>
+	<ol>
+	<input type="submit" value="修改">
+	</ol>
+	</form>
+	</dt>
+	</dl>
+	</div>
+</div>
+</body>
+</html>

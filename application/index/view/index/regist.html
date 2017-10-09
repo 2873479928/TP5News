@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/Style.css">
+	<script src="__JS__/RegistJs.js"></script>
+</head>
+<body>
+<div class="header">
+	<h3>注册</h3>
+</div>
+<div class="main" id="regist_form">
+<dl>
+<form action="/VerifyRegist" method="post">
+<dt>
+  <p>
+  用户名:<input type="text" name="UserName" onkeyup="StateU(this.value)" onBlur="StateU(this.value)">
+  <span id="StateU">请输入帐号</span>
+  </p>
+</dt>
+<dt>
+  <p>
+  密&nbsp;&nbsp;码:<input type="password" name="UserPasswd" id="UserPasswd" onkeyup="StateP(this.value)" onBlur="StateP(this.value)">
+  <span id="StateP">请输入密码</span>
+  </p>
+</dt>
+<dt>
+	<p>
+	确认密码:<input type="password" name="UserPasswd1" onkeyup="StateP1(this.value)" onBlur="StateP1(this.value)">
+	<span id="StateP1">再次输入密码</span>
+	</p>
+</dt>
+<dt>
+	<p>
+	验证码：<input type="text" name="captcha">
+	<span>不区分大小写</span>
+	</p>
+</dt>
+<dt>
+	<p>
+	<a href="javascript:captcha()">
+	<img id="captchaimg" src="{:captcha_src()}" alt="加载验证码" />
+	</a>
+	</p>
+</dt>
+<dt>
+  <p><input type="submit" value="注册"></p>
+</dt>
+</form>
+</dl>
+</div>
+</body>
+</html>

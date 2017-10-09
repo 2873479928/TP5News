@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/Style.css">
+	<script src="__JS__/RegistJs.js"></script>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+	<h3>登录</h3>
+</div>
+	<div class="main" id="login_form">
+    <form action="/VerifyLogin" method="post">
+	<dl>
+	<dt>
+		<p>用户名：<input type="text" name="UserName"></p>
+	</dt>
+	<dt>
+		<p>密&nbsp;&nbsp;码：<input type="password" name="PassWord"></p>
+	</dt>
+	<dt>
+		<p>验证码：<input type="text" name="captcha"></p>
+	</dt>
+	<dt>
+		<p>
+	    <a href="javascript:captcha()">
+	    <img id="captchaimg" src="{:captcha_src()}" alt="加载验证码" />
+	    </a>
+	    </p>
+	</dt>
+	<dt>
+		<p><input type="submit" value="登录"></p>
+	</dt>
+	<dt>
+		<p><a href="/regist">去注册</a></p>
+	</dt>
+	</dl>
+    </form>
+    </div>
+</div>    
+</body>
+</html>

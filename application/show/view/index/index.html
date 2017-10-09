@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主页</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/DropDownList.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/ShowStyle.css">
+	<script src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/DropDownList.js"></script>
+	<script src="__JS__/ShowJs.js"></script>
+</head>
+<body>
+<div class="wrap">
+<div class="left" id="left">
+	<p><img src="{$imgurl}" value="暂无图片"></p>
+</div>
+<div class="right" id="right">
+    <p><h5 style="color:green">当前:{$Now}</h5></p>
+	<p><a href="/login">切换帐号或登录</a></p>
+	<p style="display:{$YNAdmin}"><a href="/admin">后台</a></p>
+	<p style="display:{$Logout}"><a href="/logout">注销</a></p>
+</div>
+<div class="titleback" id="back"></div>
+<div class="title" id="title">
+	{include file="common/DropDownList" /}
+</div>
+
+    <div class="main">
+    <dl>
+    <dt><h3>{$MainTitle}</h3></dt><hr/>
+    <p>{$MainContent}</p>
+	</dl>
+	</div>
+</div>
+</body>
+</html>
